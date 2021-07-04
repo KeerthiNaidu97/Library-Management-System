@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+<script>
+
+  if(!(localStorage['login']=="success")){
+        window.location.replace("index");
+    }
+      function logout(){
+      alert("logout");
+      localStorage.removeItem("index");
+      localStorage.removeItem("sid");
+      window.location.replace("index");
+  }
+
+    window.onbeforeunload = function() {
+
+      localStorage.removeItem(index);
+      localStorage.removeItem(sid);
+      return '';
+    };
+</script>
+	
+    <link rel="icon" type="text/css" href="../font-awesome/icon.png">
+
+    <title>LIBRARY</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">LIBRARY</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span id="user_name_disp"></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="profile"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a onclick="logout()" href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="">
+                        <a href="dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="requested_books"><i class="fa fa-fw fa-book"></i> Requested Books</a>
+                    </li>
+                    <li class="">
+                        <a href="Return_books"><i class="fa fa-fw fa-book"></i> Recieve/Return Book</a>
+                    </li>
+                   
+                    <li class="">
+                        <a href="penalty"><i class="fa fa-fw fa-money"></i> Penalty</a>
+                    </li>
+                  
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container">
+
+                <center><h3>Requested Books</h3></center>
+            <div class="row">
+                <!-- <div class="container ">
+                        
+                                <div class="col-md-10">
+                                    <br>
+                                    <input type="text" class="form-control" placeholder="Book Title / Author / Book ID " id="search_book"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                    <button  id="search_btn" class="btn btn-success"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </div>
+                        
+                 </div> -->
+                 <hr>
+                <div class="col-md-11 " >
+                  <table class="table table-stripped" id="book_display">
+                    <thead>
+                        <th style="">Book Id</th>
+                        <th>Date/time</th>
+                        <th style="">Title</th>
+                        <th>USN</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Semester</th>
+                        <th>Branch</th>
+                        <th style="">Stock</th>
+                        <th style="width: 15%">Approve Book</th>
+                    </thead>
+                    
+                    
+                  </table>  
+                </div>
+
+            </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="fetch_book_requests.js"></script>
+	<script type="text/javascript" src="fetch_user.js"></script>
+</body>
+
+</html>

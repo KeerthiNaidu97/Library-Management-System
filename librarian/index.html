@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="text/css" href="../font-awesome/icon.png">
+
+    <title>LIBRARY</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div id="wrapper ">
+        <center><h1>SMART LIBRARY</h1></center>
+        <div style="height:200px;overflow:hidden">
+            <img src="../font-awesome/login.jpg" width="100%">
+        </div>
+        
+        <div class="container">
+
+            <center>
+            <form class="form-inline">
+                <h2 class="bg-primary" style="width:50%">LOGIN HERE</h2>
+                <label>Email :</label>
+                <input type="email" class="form-control" placeholder="Enter Your Email" id="email" required autofocus >
+                <label>Password :</label>
+                <input type="password" class="form-control" placeholder="Enter Your Password" id="password" required>
+                <br>
+                <br>
+                <input type="button" value="Log in" class="btn btn-info" id="login" onclick="verify()">
+                <input type="reset" class="btn btn-danger">
+            </form>
+            <br>
+            <p>Forgot Password ? Enter ur email id</p>
+            <form class="form-inline">
+
+                <input type="email" class="form-control" placeholder="Enter Your Email">
+                <input type="submit" class="btn btn-info">
+            </form>
+
+            <a href="../">Go to Main Page</a>
+            </center>
+        </div>
+
+    </div>
+    <!-- /#wrapper -->
+ <script type="text/javascript">
+        function verify(){
+
+            var email=$("#email").val();
+            var password=$("#password").val();
+            
+            $.ajax({
+                url:"verify.php",
+                type:"post",
+                data:{'email':email,
+                        'password':password},
+                success:function(data){
+                    if(data){
+                       
+                       
+                        
+                        localStorage['login']="success";
+                        
+                        localStorage['sid']=data;
+                        //window.location = "dashboard";
+                        location.replace("dashboard");
+                       
+                    
+                    }else{
+                        
+                        alert("Invalid Credentials");
+                        
+                    }
+                }
+            });
+        }
+        
+    </script>
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../js/plugins/morris/raphael.min.js"></script>
+    <script src="../js/plugins/morris/morris.min.js"></script>
+    <script src="../js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>

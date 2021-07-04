@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,userscalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+	<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+<script>
+  if(!(localStorage['login']=="success")){
+        window.location.replace("index");
+    }
+      function logout(){
+      alert("logout");
+      localStorage.removeItem("index");
+      localStorage.removeItem("sid");
+      window.location.replace("index");
+  }
+
+    window.onbeforeunload = function() {
+
+      localStorage.removeItem(index);
+      localStorage.removeItem(sid);
+      return '';
+    };
+</script>
+	
+    <link rel="icon" type="text/css" href="../font-awesome/icon.png">
+
+    <title>Dashboard | LIBRARY</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="dashboard">LIBRARY</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span id="user_name_disp"></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                       <!--  <li>
+                            <a href="profile"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li> -->
+                        <li class="divider"></li>
+                        <li>
+                            <a  href="../"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li class="">
+                        <a href="manage_users"><i class="fa fa-fw fa-users"></i>Manage Students</a>
+                    </li>
+                     <li class="">
+                        <a href="manage_admins"><i class="fa fa-fw fa-user"></i>Manage Admins</a>
+                    </li>
+                     <li class="">
+                        <a href="manage_librarian"><i class="fa fa-fw fa-users"></i>Manage Librarian</a>
+                    </li>
+                     <li class="">
+                        <a href="manage_faculty"><i class="fa fa-fw fa-user"></i>Manage Faculty</a>
+                    </li>
+                    <li class="">
+                        <a href="manage_books_stock"><i class="fa fa-fw fa-book"></i>Manage Books Stock</a>
+                    </li>
+                    <li class="">
+                        <a href="add_reserve_book"><i class="fa fa-fw fa-book"></i>Add Special Book</a>
+                    </li>
+                    <!-- <li class="">
+                        <a href="penalty"><i class="fa fa-fw fa-money"></i> Penalty</a>
+                    </li> -->
+                    
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container">
+
+                <div class="row col-md-6">
+
+                    <a href="manage_users">
+                    <div class="col-md-6 bg-default tiles" >
+                        <h1 class="big"><i class="fa fa-fw fa-users"></i></h1>
+                        <h3>Manage Users</h3>
+                    </div>
+                    </a>
+                   
+                    <a href="manage_books_stock">
+                    <div class="col-md-6 bg-default tiles" >
+                        <h1 class="big"><i class="fa fa-fw fa-book"></i></h1>
+                        <h3>Manage Books Stock</h3>
+                    </div>
+                    </a>
+                    <!-- <a href="penalty">
+                    <div class="col-md-6 bg-default tiles" >
+                        <h1 class="big"><i class="fa fa-fw fa-money"></i></h1>
+                        <h3>Penalty</h3>
+                    </div>
+                    </a> -->
+
+
+                </div>
+                <!--  <div class="col-md-4 bg-warning" style="margin-right:10px;text-align: center;background-color: #d9534f; color: #fcf8e3;padding-bottom: 30px">
+                    <input type="hidden" name="" id="nid" value="1">
+                    <center><h3>Notice Board</h3></center>
+                    <hr>
+                    <strong>DATE : <span id="date"></span></strong>
+                    <hr>
+                    <h3 id="title"></h3>
+                    <hr>
+                    <p id="description"></p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6" onclick="prev()" style="cursor: pointer;">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                        </div>
+                        <div class="col-md-6" onclick="next()" style="cursor: pointer;">
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+   <!--  <script type="text/javascript" src="notice_board.js" ></script> -->
+	<script type="text/javascript" src="fetch_user.js"></script>
+
+</body>
+
+</html>
